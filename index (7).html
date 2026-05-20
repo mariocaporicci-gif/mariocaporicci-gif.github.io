@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MAC ADM | Mário Caporicci</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green:     #1a7a3c;
+      --green-mid: #22963f;
+      --green-light: #2db551;
+      --accent:    #f0c040;
+      --bg:        #0d1f14;
+      --card:      rgba(255,255,255,0.06);
+      --card-hover:rgba(255,255,255,0.12);
+      --text:      #f0f7f2;
+      --text-muted:#8ab89a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 60px;
+      overflow-x: hidden;
+    }
+
+    /* Background radial glow */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -120px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(34,150,63,0.25) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* ── LOGO / HEADER ── */
+    .logo-wrap {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-mid), var(--green-light));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: #fff;
+      letter-spacing: 1px;
+      box-shadow: 0 0 0 4px rgba(34,150,63,0.3), 0 8px 32px rgba(0,0,0,0.4);
+      animation: popIn .6s cubic-bezier(.34,1.56,.64,1) both;
+      margin-bottom: 16px;
+    }
+
+    .name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      color: #fff;
+      animation: fadeUp .5s .1s ease both;
+    }
+
+    .tagline {
+      font-size: .85rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+      letter-spacing: .5px;
+      animation: fadeUp .5s .2s ease both;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--green-light);
+      align-self: flex-start;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      padding-left: 4px;
+      animation: fadeUp .5s .3s ease both;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      border-radius: 14px;
+      text-decoration: none;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: .95rem;
+      transition: background .2s, transform .18s, box-shadow .2s;
+      backdrop-filter: blur(8px);
+      animation: fadeUp .5s ease both;
+    }
+
+    .btn:hover {
+      background: var(--card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .btn:active { transform: scale(.98); }
+
+    /* destaque para os kits */
+    .btn.kit {
+      background: linear-gradient(135deg, rgba(26,122,60,0.55), rgba(34,150,63,0.35));
+      border-color: rgba(45,181,81,0.35);
+    }
+    .btn.kit:hover {
+      background: linear-gradient(135deg, rgba(26,122,60,0.75), rgba(34,150,63,0.55));
+      box-shadow: 0 8px 28px rgba(34,150,63,0.25);
+    }
+
+    .btn-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      width: 36px;
+      text-align: center;
+    }
+
+    .btn-text { flex: 1; }
+    .btn-sub {
+      display: block;
+      font-size: .72rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      margin-top: 2px;
+    }
+
+    .btn-price {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: .9rem;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* social row */
+    .social-row {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 50px;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      transition: background .2s, transform .18s;
+      animation: fadeUp .5s ease both;
+    }
+    .social-btn:hover {
+      background: var(--card-hover);
+      transform: translateY(-2px);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 40px;
+      font-size: .75rem;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: .5px;
+      animation: fadeUp .5s .8s ease both;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes popIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+    @keyframes fadeUp {
+      from { transform: translateY(16px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+
+    /* delay cascade */
+    .btn:nth-child(1) { animation-delay: .30s }
+    .btn:nth-child(2) { animation-delay: .38s }
+    .btn:nth-child(3) { animation-delay: .46s }
+    .btn:nth-child(4) { animation-delay: .54s }
+    .btn:nth-child(5) { animation-delay: .62s }
+    .social-btn:nth-child(1) { animation-delay: .65s }
+    .social-btn:nth-child(2) { animation-delay: .70s }
+    .social-btn:nth-child(3) { animation-delay: .75s }
+    .social-btn:nth-child(4) { animation-delay: .80s }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Avatar / Logo -->
+  <div class="logo-wrap">MAC</div>
+  <div class="name">Mário Caporicci</div>
+  <p class="tagline">Síndico Profissional · Gestão Condominial</p>
+
+  <!-- KITS -->
+  <div class="section-label">🛒 Produtos Digitais</div>
+  <div class="btn-group">
+    <a href="https://go.hotmart.com/N105731181G" target="_blank" class="btn kit" style="animation-delay:.30s">
+      <span class="btn-icon">📋</span>
+      <span class="btn-text">
+        Kit Síndico Profissional 2026
+        <span class="btn-sub">Guia completo para síndicos profissionais</span>
+      </span>
+      <span class="btn-price">R$57</span>
+    </a>
+    <a href="https://go.hotmart.com/T105730352V" target="_blank" class="btn kit" style="animation-delay:.38s">
+      <span class="btn-icon">🏠</span>
+      <span class="btn-text">
+        Kit Síndico Morador 2026
+        <span class="btn-sub">Tudo que o morador precisa saber</span>
+      </span>
+      <span class="btn-price">R$47</span>
+    </a>
+  </div>
+
+  <!-- CONTATO -->
+  <div class="section-label">💬 Fale Comigo</div>
+  <div class="btn-group">
+    <a href="https://wa.me/5554999999999" target="_blank" class="btn" style="animation-delay:.46s">
+      <span class="btn-icon">💬</span>
+      <span class="btn-text">
+        WhatsApp
+        <span class="btn-sub">Tire suas dúvidas diretamente</span>
+      </span>
+    </a>
+  </div>
+
+  <!-- REDES SOCIAIS -->
+  <div class="section-label">📱 Redes Sociais</div>
+  <div class="social-row">
+    <a href="https://www.instagram.com/macadm5" target="_blank" class="social-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      Instagram
+    </a>
+    <a href="https://www.facebook.com/macadm" target="_blank" class="social-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.youtube.com/@mariocaporicci" target="_blank" class="social-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 0 0 1.95-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#0d1f14"/></svg>
+      YouTube
+    </a>
+    <a href="https://www.tiktok.com/@mac_adm_" target="_blank" class="social-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.85 4.85 0 0 1-1-.07z"/></svg>
+      TikTok
+    </a>
+  </div>
+
+  <div class="footer">© 2026 MAC ADM · Gestão Condominial Profissional</div>
+</div>
+</body>
+</html>
