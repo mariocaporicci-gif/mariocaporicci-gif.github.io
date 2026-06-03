@@ -1,35 +1,189 @@
-<!-- BOTÃO 10 ERROS - colar logo abaixo do subtítulo, antes de "Produtos Digitais" -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 Erros do Síndico — MAC ADM</title>
+<meta name="description" content="Os 10 erros mais comuns que podem responsabilizar o síndico — e como evitar cada um. MAC ADM · Gestão Condominial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  .macadm-10erros{
-    display:flex;align-items:center;gap:14px;text-decoration:none;
-    max-width:520px;margin:18px auto;padding:16px 20px;border-radius:16px;
-    background:linear-gradient(135deg,#E65C44,#c0392b);
-    box-shadow:0 10px 28px rgba(230,92,68,.35);
-    border:1px solid rgba(255,255,255,.18);
-    transition:transform .2s ease, box-shadow .2s ease;
-    font-family:inherit;
+  :root{
+    --navy:#0D1C44; --navy-2:#0a1636; --navy-3:#08122c;
+    --teal:#26A687; --gold:#C8A032; --coral:#E65C44;
+    --amber:#D9822B; --clay:#C0453B;
+    --ink:#0D1C44; --paper:#f4f6fa; --mut:#9fb0d0;
+    --line:rgba(255,255,255,.10);
   }
-  .macadm-10erros:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(230,92,68,.45)}
-  .macadm-10erros .dot{
-    width:12px;height:12px;border-radius:50%;background:#fff;flex:0 0 auto;
-    box-shadow:0 0 0 0 rgba(255,255,255,.7);animation:macPulse 1.6s infinite;
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Montserrat',sans-serif;color:var(--paper);
+    background:var(--navy-3);line-height:1.55;overflow-x:hidden;
   }
-  @keyframes macPulse{
-    0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}
-    70%{box-shadow:0 0 0 12px rgba(255,255,255,0)}
-    100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}
-  }
-  .macadm-10erros .txt{flex:1;text-align:left;color:#fff;line-height:1.3}
-  .macadm-10erros .txt b{display:block;font-size:16px;font-weight:800}
-  .macadm-10erros .txt span{font-size:12.5px;opacity:.9}
-  .macadm-10erros .arw{color:#fff;font-size:22px;font-weight:800}
-</style>
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  h1,h2,h3,.display{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.5px;line-height:.98}
 
-<a class="macadm-10erros" href="/10-erros">
-  <span class="dot"></span>
-  <span class="txt">
-    <b>Veja os 10 Erros do Síndico</b>
-    <span>Os erros que podem te responsabilizar — e como evitar</span>
-  </span>
-  <span class="arw">›</span>
-</a>
+  /* ---------- HERO ---------- */
+  header{
+    position:relative;padding:70px 0 56px;text-align:center;overflow:hidden;
+    background:
+      radial-gradient(900px 480px at 50% -10%, rgba(38,166,135,.28), transparent 60%),
+      radial-gradient(700px 420px at 85% 30%, rgba(200,160,50,.16), transparent 60%),
+      linear-gradient(180deg,var(--navy) 0%, var(--navy-2) 100%);
+  }
+  header::after{
+    content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  }
+  .brand{display:inline-flex;align-items:center;gap:0;font-family:'Anton';font-size:30px;letter-spacing:1px;margin-bottom:26px}
+  .brand .mac{color:#fff}.brand .adm{color:var(--gold)}
+  .brand .dot{width:74px;height:6px;background:var(--teal);border-radius:4px;margin-left:14px;align-self:center}
+  .kicker{display:inline-block;background:var(--teal);color:#062b22;font-weight:800;font-size:12.5px;
+    letter-spacing:2px;text-transform:uppercase;padding:8px 18px;border-radius:40px;margin-bottom:22px}
+  header h1{font-size:clamp(38px,8vw,86px);color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.4)}
+  header h1 .hl{color:var(--gold)}
+  .sub{max-width:640px;margin:22px auto 0;color:var(--mut);font-size:clamp(15px,2.4vw,18px);font-weight:500}
+  .scroll-cue{margin-top:38px;display:inline-flex;flex-direction:column;align-items:center;gap:6px;color:var(--mut);font-size:12px;letter-spacing:2px;text-transform:uppercase}
+  .scroll-cue span{width:1px;height:34px;background:linear-gradient(var(--teal),transparent);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+  /* ---------- ERROS ---------- */
+  .erros{padding:64px 0 30px}
+  .section-tag{font-family:'Anton';font-size:13px;letter-spacing:3px;color:var(--teal);text-transform:uppercase;text-align:center;margin-bottom:8px}
+  .section-title{text-align:center;font-size:clamp(26px,5vw,42px);color:#fff;margin-bottom:44px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+  .card{
+    position:relative;background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.02));
+    border:1px solid var(--line);border-radius:18px;padding:26px 24px 24px;overflow:hidden;
+    opacity:0;transform:translateY(26px);transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .6s,border-color .3s,background .3s;
+  }
+  .card.in{opacity:1;transform:none}
+  .card:hover{border-color:rgba(38,166,135,.55);background:linear-gradient(160deg,rgba(38,166,135,.10),rgba(255,255,255,.02))}
+  .card .num{position:absolute;top:-14px;right:8px;font-family:'Anton';font-size:96px;color:rgba(255,255,255,.05);line-height:1}
+  .xmark{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+    background:rgba(230,92,68,.16);color:var(--coral);font-size:20px;font-weight:800;margin-bottom:14px}
+  .badge{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;
+    padding:5px 12px;border-radius:30px;margin-bottom:12px;color:#0b1430}
+  .b-fin{background:var(--gold)} .b-leg{background:var(--coral);color:#fff}
+  .b-trab{background:var(--amber)} .b-gest{background:var(--teal);color:#06281f}
+  .b-pess{background:var(--clay);color:#fff}
+  .card h3{font-size:23px;color:#fff;margin-bottom:9px;letter-spacing:.4px}
+  .card p{font-size:13.6px;color:var(--mut);font-weight:500}
+
+  /* ---------- CTA ---------- */
+  .cta{padding:46px 0 70px}
+  .cta-box{
+    position:relative;border-radius:24px;padding:46px 34px;text-align:center;overflow:hidden;
+    background:
+      radial-gradient(600px 300px at 50% 0%, rgba(38,166,135,.30), transparent 65%),
+      linear-gradient(160deg,var(--navy) 0%, var(--navy-2) 100%);
+    border:1.5px solid rgba(200,160,50,.45);
+  }
+  .cta-box h2{font-size:clamp(26px,5vw,44px);color:#fff;margin-bottom:14px}
+  .cta-box h2 .hl{color:var(--gold)}
+  .cta-box p{color:var(--mut);max-width:520px;margin:0 auto 30px;font-weight:500;font-size:15.5px}
+  .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:15.5px;text-decoration:none;
+    padding:17px 30px;border-radius:14px;transition:transform .2s,box-shadow .2s;letter-spacing:.3px}
+  .btn:hover{transform:translateY(-3px)}
+  .btn-gold{background:linear-gradient(135deg,var(--gold),#e0bd55);color:#2a1d00;box-shadow:0 12px 30px rgba(200,160,50,.3)}
+  .btn-wa{background:#25D366;color:#03331a;box-shadow:0 12px 30px rgba(37,211,102,.25)}
+  .price{display:block;font-size:12px;font-weight:700;opacity:.8;margin-top:2px}
+  .guarantee{margin-top:22px;color:var(--mut);font-size:12.5px}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;background:var(--navy-3)}
+  .f-brand{font-family:'Anton';font-size:22px;color:#fff}
+  .f-brand .adm{color:var(--gold)}
+  footer p{color:var(--mut);font-size:12.5px;margin-top:8px}
+  .f-links{margin-top:16px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+  .f-links a{color:var(--teal);text-decoration:none;font-size:13px;font-weight:600}
+  .f-links a:hover{color:#fff}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand"><span class="mac">MAC&nbsp;</span><span class="adm">ADM</span><span class="dot"></span></div>
+    <div class="kicker">Síndico Profissional</div>
+    <h1>Seu condomínio comete<br>algum desses <span class="hl">erros?</span></h1>
+    <p class="sub">Os 10 erros mais comuns que podem responsabilizar o síndico — alguns caem no bolso da própria pessoa. Veja todos e saiba como evitar cada um.</p>
+    <div class="scroll-cue"><span></span>Role para ver</div>
+  </div>
+</header>
+
+<section class="erros">
+  <div class="wrap">
+    <div class="section-tag">Os 10 erros</div>
+    <h2 class="section-title">Que podem te responsabilizar</h2>
+    <div class="grid" id="grid">
+      <!-- cards injected -->
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Evite <span class="hl">todos esses erros</span></h2>
+      <p>No Kit Síndico Profissional 2026 você tem os modelos, planilhas e checklists prontos pra se proteger de cada um deles — da prestação de contas à assembleia e ao seguro.</p>
+      <div class="btns">
+        <a class="btn btn-gold" href="https://go.hotmart.com/N105731181G" target="_blank" rel="noopener">
+          Quero o Kit Profissional <span class="price">R$57 · acesso imediato</span>
+        </a>
+        <a class="btn btn-wa" href="https://wa.me/5554999100519?text=Ol%C3%A1!%20Vi%20os%2010%20erros%20do%20s%C3%ADndico%20e%20quero%20saber%20mais." target="_blank" rel="noopener">
+          Falar no WhatsApp
+        </a>
+      </div>
+      <p class="guarantee">Material digital · compra segura via Hotmart</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">MAC <span class="adm">ADM</span></div>
+    <p>Mário Caporicci · Síndico Profissional · Gestão Condominial</p>
+    <div class="f-links">
+      <a href="https://www.instagram.com/macadm5" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/5554999100519" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://macadm.com.br" target="_blank" rel="noopener">macadm.com.br</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const erros = [
+    {n:1, cat:"RISCO FINANCEIRO", c:"b-fin", t:"Misturar os fundos", d:"Usar o fundo de reserva para despesa corrente (ou o contrário) descontrola o caixa e pode ser apontado como má gestão."},
+    {n:2, cat:"RISCO LEGAL", c:"b-leg", t:"Expor os inadimplentes", d:"Lista de devedores no elevador ou mural pode gerar ação por dano moral e violar a LGPD. A cobrança deve ser individual e discreta."},
+    {n:3, cat:"RISCO LEGAL", c:"b-leg", t:"Obra sem assembleia", d:"Obra que exige aprovação feita sem deliberação pode ser anulada e responsabilizar o síndico pelo gasto."},
+    {n:4, cat:"RISCO TRABALHISTA", c:"b-trab", t:"Encargos ignorados", d:"Não fiscalizar INSS, FGTS e encargos dos terceirizados pode gerar responsabilidade subsidiária do condomínio na Justiça do Trabalho."},
+    {n:5, cat:"RISCO DE GESTÃO", c:"b-gest", t:"Falta de comunicação", d:"Sem transparência com os moradores, cresce a desconfiança, o conflito e a contestação das contas em assembleia."},
+    {n:6, cat:"RISCO PESSOAL", c:"b-pess", t:"Manutenção ignorada", d:"Negligenciar manutenção preventiva (elevador, gás, incêndio) pode causar acidente e responsabilização civil e criminal."},
+    {n:7, cat:"RISCO FINANCEIRO", c:"b-fin", t:"Desconto a inadimplente", d:"Conceder desconto sem previsão ou aprovação cria precedente, é injusto com quem paga em dia e pode ser questionado."},
+    {n:8, cat:"RISCO LEGAL", c:"b-leg", t:"Assembleia irregular", d:"Convocação fora do prazo ou sem edital e quórum corretos torna as decisões passíveis de anulação."},
+    {n:9, cat:"RISCO PESSOAL", c:"b-pess", t:"Seguro vencido", d:"O seguro do condomínio é obrigatório por lei. Deixá-lo vencer expõe o síndico a responsabilidade direta em caso de sinistro."},
+    {n:10, cat:"RISCO LEGAL", c:"b-leg", t:"Fornecedor sem seguro", d:"Contratar prestador sem seguro ou cobertura joga o risco de acidentes e danos para o condomínio."},
+  ];
+  const grid = document.getElementById('grid');
+  erros.forEach(e=>{
+    const el = document.createElement('div');
+    el.className='card';
+    el.innerHTML = `<span class="num">${e.n}</span>
+      <div class="xmark">&times;</div>
+      <span class="badge ${e.c}">${e.cat}</span>
+      <h3>${e.t}</h3>
+      <p>${e.d}</p>`;
+    grid.appendChild(el);
+  });
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((en,i)=>{ if(en.isIntersecting){ setTimeout(()=>en.target.classList.add('in'), (en.target.dataset.i%2)*90); io.unobserve(en.target);} });
+  },{threshold:.15});
+  document.querySelectorAll('.card').forEach((c,i)=>{c.dataset.i=i;io.observe(c)});
+</script>
+</body>
+</html>
